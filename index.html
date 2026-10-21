@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="om" id="htmlRoot">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Malkaa Noonnoo - Mana Marii</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Noto+Sans+Ethiopic:wght@400;600;700&family=Outfit:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo-container" onclick="showPage('home')">
+        <div class="logo-icon"><i class="fa-solid fa-mosque"></i></div>
+        <div class="logo-text">
+          <strong data-i18n="nav_logo">Malkaa Noonnoo</strong>
+          <span data-i18n="nav_sub">Mana Marii</span>
+        </div>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li>
+          <a
+            href="javascript:void(0)"
+            class="active"
+            onclick="showPage('home')"
+            data-i18n="nav_home"
+            >Fuula Duraa</a
+          >
+        </li>
+        <li>
+          <a
+            href="javascript:void(0)"
+            onclick="showPage('about')"
+            data-i18n="nav_about"
+            >Waa'ee Keenya</a
+          >
+        </li>
+        <li>
+          <a
+            href="javascript:void(0)"
+            onclick="showPage('departments')"
+            data-i18n="nav_depts"
+            >Damee Bulchiinsaa</a
+          >
+        </li>
+        <li>
+          <a
+            href="javascript:void(0)"
+            onclick="showPage('zones')"
+            data-i18n="nav_zones"
+            >Aannoota Sadan</a
+          >
+        </li>
+        <li>
+          <a
+            href="javascript:void(0)"
+            onclick="showPage('contact')"
+            data-i18n="nav_contact"
+            >Nu Qunnamaa</a
+          >
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <div class="lang-switcher">
+          <i class="fa-solid fa-globe"></i>
+          <select id="languageSelect" onchange="changeLanguage(this.value)">
+            <option value="om">Oromoo</option>
+            <option value="am">አማርኛ</option>
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+          </select>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+      <!-- 1. HOME -->
+      <section id="home" class="page active">
+        <div class="hero-section">
+          <div class="hero-content">
+            <h1 class="hero-title" data-i18n="hero_title">
+              Mana Marii Dhimmoota Islaamummaa<br />Malkaa Noonnoo
+            </h1>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">
+              Baga nagaan dhuftan. Mana marii kanaaf qabeenya dhaabbataa,
+              geejjiba gahaa fi galii of danda'e uumuuf karoorfanne.
+            </p>
+            <div class="hero-buttons">
+              <button
+                class="btn btn-primary"
+                onclick="showPage('about')"
+                data-i18n="btn_projects"
+              >
+                Seenaa Ilaali <i class="fa-solid fa-arrow-right"></i>
+              </button>
+              <button
+                class="btn btn-secondary"
+                onclick="showPage('donation')"
+                data-i18n="btn_donate"
+              >
+                Gargaarsa Godhi
+              </button>
+            </div>
+          </div>
+          <div class="bg-grid"></div>
+          <div class="bg-glow"></div>
+        </div>
+      </section>
+
+      <!-- 2. ABOUT -->
+      <section id="about" class="page">
+        <h2 class="section-title" data-i18n="about_title">
+          Seenaa fi Maalummaa Mana Marichaa
+        </h2>
+        <div class="content-box">
+          <p data-i18n="about_desc">Mannni marichaa kun...</p>
+          <div class="mt-4">
+            <button
+              class="btn btn-primary"
+              onclick="showPage('leadership')"
+              data-i18n="btn_leadership"
+            >
+              Hooggansa Ilaali
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. DEPARTMENTS -->
+      <section id="departments" class="page">
+        <h2 class="section-title" data-i18n="dept_title">
+          Damee Bulchiinsaa 12
+        </h2>
+        <div class="grid-container" id="deptGrid"></div>
+      </section>
+
+      <!-- 4. ZONES -->
+      <section id="zones" class="page">
+        <h2 class="section-title" data-i18n="zones_title">Aannoota Sadan</h2>
+        <div class="grid-container">
+          <div class="card zone-card">
+            <h3 data-i18n="zone_malka">Aanaa Malkaa Gafarsaa</h3>
+            <div class="zone-actions">
+              <button
+                class="btn btn-outline"
+                onclick="showFacilities('Malkaa Gafarsaa', 'Masjiidoota')"
+                data-i18n="btn_mosques"
+              >
+                Masjiidoota
+              </button>
+              <button
+                class="btn btn-outline"
+                onclick="showFacilities('Malkaa Gafarsaa', 'Madrasoota')"
+                data-i18n="btn_madrasas"
+              >
+                Madrasoota
+              </button>
+            </div>
+          </div>
+          <div class="card zone-card">
+            <h3 data-i18n="zone_beeroo">Aanaa Beeroo</h3>
+            <div class="zone-actions">
+              <button
+                class="btn btn-outline"
+                onclick="showFacilities('Beeroo', 'Masjiidoota')"
+                data-i18n="btn_mosques"
+              >
+                Masjiidoota
+              </button>
+              <button
+                class="btn btn-outline"
+                onclick="showFacilities('Beeroo', 'Madrasoota')"
+                data-i18n="btn_madrasas"
+              >
+                Madrasoota
+              </button>
+            </div>
+          </div>
+          <div class="card zone-card">
+            <h3 data-i18n="zone_noonnoo">Aanaa Noonnoo</h3>
+            <div class="zone-actions">
+              <button
+                class="btn btn-outline"
+                onclick="showFacilities('Noonnoo', 'Masjiidoota')"
+                data-i18n="btn_mosques"
+              >
+                Masjiidoota
+              </button>
+              <button
+                class="btn btn-outline"
+                onclick="showFacilities('Noonnoo', 'Madrasoota')"
+                data-i18n="btn_madrasas"
+              >
+                Madrasoota
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. FACILITY LIST (Mosques/Madrasas of a specific zone) -->
+      <section id="facility-list" class="page">
+        <button class="btn-back" onclick="showPage('zones')">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span data-i18n="btn_back">Deebi'i</span>
+        </button>
+        <h2 class="section-title" id="listTitle">Masjiidoota</h2>
+        <div class="grid-container" id="facilityGrid"></div>
+      </section>
+
+      <!-- 6. FACILITY DETAILS (Specific Mosque/Madrasa with tabs) -->
+      <section id="facility-details" class="page">
+        <button class="btn-back" onclick="backToFacilityList()">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span data-i18n="back_to_list">Gara Tarreeffamaatti Deebi'i</span>
+        </button>
+        <h2 class="section-title" id="facilityTitle">Maqaa Dhaabbataa</h2>
+        <div class="tabs-container">
+          <div class="tabs" id="facilityTabs"></div>
+        </div>
+        <div class="tab-content" id="facilityContent"></div>
+      </section>
+
+      <!-- 7. DONATION -->
+      <section id="donation" class="page">
+        <h2 class="section-title" data-i18n="donation_title">Gargaarsa</h2>
+        <div class="content-box text-center">
+          <p data-i18n="donation_desc">
+            Mana marii kana gargaaruuf kaffaltiiwwan armaan gadii fayyadamuu
+            dandeessu:
+          </p>
+          <div class="mt-4">
+            <p><strong>CBE:</strong> 1000-XXXX-XXXX</p>
+            <p><strong>Telebirr:</strong> 0911-XXXXXX</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. LEADERSHIP -->
+      <section id="leadership" class="page">
+        <h2 class="section-title" data-i18n="leadership_title">
+          Hooggansa Mana Marichaa
+        </h2>
+        <div class="content-box">
+          <p data-i18n="leadership_desc">
+            Hooggantoonni ol'aanoo fi koreen bulchiinsaa asitti galmaa'u.
+          </p>
+        </div>
+      </section>
+
+      <!-- 9. CONTACT -->
+      <section id="contact" class="page">
+        <h2 class="section-title" data-i18n="contact_title">Nu Qunnamaa</h2>
+        <div class="content-box">
+          <p>
+            <strong data-i18n="contact_address">Teessoo:</strong> Malkaa
+            Noonnoo, Oromiyaa
+          </p>
+          <p>
+            <strong data-i18n="contact_phone">Bilbila:</strong> +251 911 000 000
+          </p>
+          <p>
+            <strong data-i18n="contact_email">Imeelii:</strong>
+            info@malkanoonnoo.com
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>
+        &copy; 2026 <span data-i18n="nav_logo">Malkaa Noonnoo</span>.
+        <span data-i18n="footer_rights">Mirgi maxxanfamaa eegamaadha.</span>
+      </p>
+    </footer>
+
+    <script src="translation.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
